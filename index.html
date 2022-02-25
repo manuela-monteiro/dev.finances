@@ -8,6 +8,10 @@
     <title>dev.finance$</title>
 
     <link rel="stylesheet" href="./style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -15,7 +19,7 @@
         <h1 id="logo">dev.finance$</h1>
     </header>
 
-    <main>
+    <main class="container">
         <section id="balance">
             <h2>Balance</h2>
 
@@ -27,7 +31,7 @@
                 <h3>Outgoings</h3>
                 <p>US$2,000.00</p>
             </div>
-            <div class="card">
+            <div class="card total">
                 <h3>Total</h3>
                 <p>US$3,000.00</p>
             </div>
@@ -46,19 +50,19 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Electrical bill</td>
-                        <td>- US$100.00</td>
-                        <td>02/23/2022</td>
+                        <td class="description">Electrical bill</td>
+                        <td class="expense">- US$100.00</td>
+                        <td class="date">02/23/2022</td>
                     </tr>
                     <tr>
-                        <td>Website</td>
-                        <td>US$2,000.00</td>
-                        <td>02/23/2022</td>
+                        <td class="description">Website</td>
+                        <td class="income">US$2,000.00</td>
+                        <td class="date">02/23/2022</td>
                     </tr>
                     <tr>
-                        <td>Internet</td>
-                        <td>- US$120.00</td>
-                        <td>02/23/2022</td>
+                        <td class="description">Internet</td>
+                        <td class="expense">- US$120.00</td>
+                        <td class="date">02/23/2022</td>
                     </tr>
                 </tbody>
             </table>
