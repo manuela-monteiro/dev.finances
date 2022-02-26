@@ -1,6 +1,9 @@
 /* GLOBAL-START */
 :root {
-    --dark-blue: #363F5F;
+    --app-dark-blue: #363F5F;
+    --app-green: #49AA26;
+    --app-light-green: #3DD705; 
+    --app-red: #E92929;
 }
 
 * {
@@ -9,9 +12,26 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 93.75%;
+}
+
 body {
     background-color: #f0f2f5;
     font-family: 'Ubuntu', sans-serif;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
 .container {
@@ -24,10 +44,67 @@ body {
 h2 {
     margin-top: 3.2rem;
     margin-bottom: 0.8rem;
-    color: var(--dark-blue);
+    color: var(--app-dark-blue);
     font-weight: 400;
 }
 /* TITLES-END */
+
+/* LINKS_AND_BUTTONS-START */
+a {
+    color: var(--app-green);
+    text-decoration: none;
+
+    transition: .2s;
+}
+
+a:hover {
+    color: var(--app-light-green);
+    transition: .2s;
+}
+
+button {
+    width: 100%;
+    height: 50px;
+
+    border: none;
+
+    color: white;
+    background: var(--app-green);
+
+    padding: 0;
+
+    border-radius: .25rem;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--app-light-green);
+}
+
+.button.new {
+    display: inline-block;
+    margin-bottom: .8rem;
+}
+
+.button.cancel {
+    color: var(--app-red);
+    border: 2px var(--app-red) solid;
+    border-radius: .25rem;
+
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0.6;
+}
+
+.button.cancel:hover {
+    opacity: 1;
+}
+/* LINKS_AND_BUTTONS-END */
 
 /* HEADER-START */
 header {
@@ -60,12 +137,16 @@ header {
     border-radius: .25rem;
     margin-bottom: 2rem;
 
-    color: var(--dark-blue);
+    color: var(--app-dark-blue);
 }
 
 .card h3 {
     font-weight: 400;
     font-size: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .card p {
@@ -76,20 +157,30 @@ header {
 }
 
 .card.total {
-    background: #49AA26;
+    background: var(--app-green);
     color: white;
 }
 /* CARDS-END */
 
 /* TABLE-START */
+#transactions {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+
 #data-table {
     width: 100%;
     border-spacing: 0 .5rem;
     color: #969CB3;
 }
 
-table thead tr:first-child, table tbody tr td:first-child {
+table thead tr th:first-child, table tbody tr td:first-child {
     border-radius: .25rem 0 0 .25rem;
+}
+
+table thead tr th:last-child, table tbody tr td:last-child {
+    border-radius: 0 .25rem .25rem 0;
 }
 
 table thead th {
@@ -116,7 +207,7 @@ table tbody td {
 }
 
 td.description {
-    color: var(--dark-blue);
+    color: var(--app-dark-blue);
 }
 
 td.income {
@@ -124,16 +215,101 @@ td.income {
 }
 
 td.expense {
-    color: #E92929;
+    color: var(--app-red);
 }
 /* TABLE-END */
+
+/* MODAL-START */
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, .7);
+
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    
+    z-index: 1;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background: #F0F2F5;
+    padding: 2.4rem;
+
+    width: 90%;
+    max-width: 500px;
+}
+/* MODAL-END */
+
+/* FORM-START */
+#form {
+    max-width: 500px;
+}
+
+#form h2 {
+    margin-top: 0;
+}
+
+input {
+    border: none;
+    border-radius: .2rem;
+
+    padding: .8rem;
+
+    width: 100%;
+}
+
+.input-group {
+    margin-top: .8rem;
+}
+
+.input-group small {
+    opacity: .5;
+}
+
+.input-group.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-group.actions .button, .input-group.actions button {
+    width: 48%;
+}
+/* FORM-END */
 
 /* FOOTER-START */
 footer {
     text-align: center;
 
     padding: 4rem 0 2rem;
-    color: var(--dark-blue);
+    color: var(--app-dark-blue);
     opacity: .6;
 }
 /* FOOTER-END */
+
+/* RESPONSIVITY-START */
+@media (min-width: 800px) {
+    html {
+        font-size: 87.5%;
+    }
+
+    #balance {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+/* RESPONSIVITY-END */
