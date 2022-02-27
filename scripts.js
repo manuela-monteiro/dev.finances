@@ -100,31 +100,19 @@ const DOM = {
 const Utils = {
     formatAmount(amount) {
         amount = Number(amount) * 100;
-        return amount;
+        return Math.round(amount);
     },
     formatDate(date) {
         date = date.split("-");
         return `${date[1]}/${date[2]}/${date[0]}`;
     },
     formatCurrency(value) {
-        const sign = Number(value) < 0 ? "-" : "";
-
-        value = (Number(String(value).replace(/\D/g, ""))/100).toLocaleString("en-US", {
+        value = (value/100).toLocaleString("en-US", {
             style: "currency",
             currency: "USD"
         });
-        /*  The "/\D/g" expression means:
-                - / /: set the Regular Expression (RegEx) syntactic bounds;
-                - \D: non-digit characters;
-                - g: search globally (in the specified string)
-        */
 
-        /*  The string containing the value loses its sing.
-        It is then converted into a number once again,
-        divided by 100 so that we can recognize its decimal places and,
-        finally, formatted as a currency */
-
-        return sign + value;
+        return value;
     }
 };
 
