@@ -104,6 +104,10 @@ button:hover {
 .button.cancel:hover {
     opacity: 1;
 }
+
+.remove-button:hover {
+    cursor: pointer;
+}
 /* LINKS_AND_BUTTONS-END */
 
 /* HEADER-START */
@@ -275,7 +279,7 @@ input {
     margin-top: .8rem;
 }
 
-.input-group small {
+.input-group .help {
     opacity: .5;
 }
 
