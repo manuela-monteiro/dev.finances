@@ -78,7 +78,7 @@ const DOM = {
                 <td class="${transactionType}">${formattedAmount}</td>
                 <td class="date">${transaction.date}</td>
                 <td>
-                    <img class="remove-button" src="./assets/minus.svg" alt="Remove transaction icon" onclick="transactionsMethods.delete(${index})"/>
+                    <img class="remove-button" src="./assets/minus.svg" alt="Remove transaction" onclick="transactionsMethods.delete(${index})"/>
                 </td>
             </tr>
         `;
